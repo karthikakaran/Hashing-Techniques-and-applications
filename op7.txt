@@ -1,0 +1,53 @@
+
+CS 4V95.003, CS 5V81.012. Implementation of data structures and algorithms
+Fall 2016
+Optional Project 7
+Fri, Nov 4, 2016
+Topic: Hashing
+
+Version 1.0: Initial description.
+
+Due: 11:59 PM, Tue, Nov 15.
+
+Solve as many problems as you wish:
+
+
+1. Use Java's HashSet to remove duplicates from an array:
+   Given an array of unsorted objects of some class (that implements hashCode
+   and equals), move the distinct elements of the array to the front. 
+   Let k be the number of distinct elements of A (k is not known). 
+   Find the k distinct elements of arr[], and move them to arr[0..k-1],
+   and set arr[k..n-1] to null.  Return k.  Signature: 
+
+	public static<T> int findDistinct(T[] arr)
+
+2. Use Java's HashMap to find the most frequently appearing element in an array:
+	public static<T> T mostFrequent(T[] arr)
+   If there is a tie, among the elements that are most frequent, return the
+   one that appears at the smallest index of the array.
+
+3. Implement separate chaining and 2-choice hashing algorithms.
+   Compare the maximum list length between the two algorithms.
+   Try different values of N > 1M, and insert 10N random elements. 
+   Compare the maximum size of the lists and the number of empty lists
+   between the two approaches.  Suggested code organization:
+
+	class HashTable<T>  // separate chaining
+	class TwoChoice<T extends HashCodes<? super T>>  // 2-choice hashing
+	public interface HashCodes<T> {
+	    int h1(T x);  // Hash function 1
+	    int h2(T x);  // Hash function 2
+	}
+
+4. Implement the following algorithms: Double hashing, Hopscotch hashing.
+   Compare their performances with Java's implemetation of hashing.
+   Starter code for closed hashing implementations:
+   http://www.utdallas.edu/~rbk/teach/2016f/java/code/hashing/HashTable.java
+   Hopscotch hashing wikipedia page:
+   https://en.wikipedia.org/wiki/Hopscotch_hashing
+
+5. Compare the performances of Trees, Lists, Skip lists, and Hashing
+   on the operations add, contains, remove.  For Tree, List, and Hashing,
+   use the Java library.  For Skip list, use your code from MP2.
+   Experiment with hundreds of millions of elements.
+
